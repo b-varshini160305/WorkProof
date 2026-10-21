@@ -171,18 +171,25 @@ button:hover {
     padding: 16px;
   }
 
- main h1 {
-  font-size: 44px;
-  margin-bottom: 20px;
-  line-height: 1.4;
-  color: #172033;
-  opacity: 1;
-  visibility: visible;
-  position: relative;
-  z-index: 1;
-} 
+  main h1 {
+    font-size: 32px;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    color: #172033;
+    opacity: 1;
+    visibility: visible;
+    overflow-wrap: break-word;
+  }
+
+  section > h2 {
+    font-size: 28px;
+    color: #172033;
+    opacity: 1;
+    visibility: visible;
+  }
 
   main p {
     font-size: 16px;
   }
 }
+
