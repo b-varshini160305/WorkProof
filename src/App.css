@@ -193,3 +193,16 @@ button:hover {
   }
 }
 
+@media (max-width: 900px) and (orientation: landscape) {
+  main h1,
+  section > h2 {
+    color: #172033 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    position: relative;
+    z-index: 10;
+  }
+}
+
+
