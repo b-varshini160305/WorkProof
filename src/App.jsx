@@ -379,10 +379,11 @@ onClick={() => {
                     const number = Number(programInput.trim());
 
                     expected = number % 2 === 0 ? "Even" : "Odd";
-                  } else if (selectedChallenge.id === 2) {
-                    const number = Number(programInput.trim());
+                } else if (selectedChallenge.id === 2) {
+  const numbers = programInput.trim().split(/\s+/).map(Number);
 
-                    expected = String((number * (number + 1)) / 2);
+  expected = String(numbers.reduce((sum, number) => sum + number, 0));
+}
                   } else if (selectedChallenge.id === 3) {
                     const numbers = programInput.split(",").map(Number);
 
