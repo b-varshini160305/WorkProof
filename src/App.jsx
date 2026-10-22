@@ -373,28 +373,24 @@ onClick={() => {
   );
   return;
 }
-                  let expected = selectedChallenge.exampleOutput.trim();
+                let expected = selectedChallenge.exampleOutput.trim();
 
-                  if (selectedChallenge.id === 1) {
-                    const number = Number(programInput.trim());
-
-                    expected = number % 2 === 0 ? "Even" : "Odd";
-                } else if (selectedChallenge.id === 2) {
+if (selectedChallenge.id === 1) {
+  const number = Number(programInput.trim());
+  expected = number % 2 === 0 ? "Even" : "Odd";
+} else if (selectedChallenge.id === 2) {
   const numbers = programInput.trim().split(/\s+/).map(Number);
-
   expected = String(numbers.reduce((sum, number) => sum + number, 0));
+} else if (selectedChallenge.id === 3) {
+  const numbers = programInput.split(",").map(Number);
+  expected = String(Math.max(...numbers));
 }
-                  } else if (selectedChallenge.id === 3) {
-                    const numbers = programInput.split(",").map(Number);
-
-                    expected = String(Math.max(...numbers));
-                  }
-                  const actual = actualOutput.trim();
-                  if (!actual) {
-                    setAnswerStatus(
-                      "Run your code successfully before checking your answer.",
-                    );
-                  } else if (actual === expected) {
+const actual = actualOutput.trim();
+if (!actual) {
+  setAnswerStatus(
+    "Run your code successfully before checking your answer.",
+  );
+} else if (actual === expected) {
   setAnswerStatus("Passed! Your output matches the expected answer.");
 
   setCompletedChallenges((previous) =>
@@ -402,15 +398,15 @@ onClick={() => {
       ? previous
       : [...previous, selectedChallenge.id]
   );
+} else {
+  setAnswerStatus(
+    "Failed. Expected: " +
+      expected +
+      " | Your output: " +
+      actual,
+  );
 }
-                  else {
-                    setAnswerStatus(
-                      "Failed. Expected: " +
-                        expected +
-                        " | Your output: " +
-                        actual,
-                    );
-                  }
+
                 }}
               >
                 Check Answer
